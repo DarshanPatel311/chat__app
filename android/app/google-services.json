@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "26741511759",
-    "project_id": "chat-app-2896b",
-    "storage_bucket": "chat-app-2896b.appspot.com"
+    "project_number": "724621599065",
+    "project_id": "chatbox-48c70",
+    "storage_bucket": "chatbox-48c70.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:26741511759:android:c5d923abe45f7554e03c3a",
+        "mobilesdk_app_id": "1:724621599065:android:a80108db44394406d3ec48",
         "android_client_info": {
-          "package_name": "com.example.chat_app"
+          "package_name": "com.example.chat_box"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDoOEFFgNWBuwgaUpnvxKgO0iLIIIrZe-o"
+          "current_key": "AIzaSyDqGIqqSRiFf-3VvMHvXdH_BjEPNFSCycI"
         }
       ],
       "services": {
