@@ -29,10 +29,11 @@ class ApiService {
 
   // onclick method call
   Future<void> sendMessage(String title, String body, String token) async {
-
+    String accessToken = await getAccessToken();
     Map notification = {
       "message": {
-        "token": token, // Use a valid FCM token here
+        "token": token, // Use a va
+        // lid FCM token here
         "notification": {
           "title": title,
           "body": body,
@@ -44,12 +45,12 @@ class ApiService {
     final jsonNotification = jsonEncode(notification);
     try {
       // String serverToken = getServerToken().toString();
-      String serverToken = 'ya29.a0AcM612y8vcEOviC7oTgvnFc1reuCvZmOAP7dMG8NXP9_3sbRUV649SbM2hKZg8DbRHylOzkhbg2MJyE1bTHy902-zi0Rrt9eMxajcpGDLg8A8Smd2Jq70Fuivit5yhaai3Iu77d3s3QNK3nNzXThg3NvyQQSQBapIrq9O5kYaCgYKAaYSARESFQHGX2MiWdMg9cq34yVxTC31L5_WdA0175';
-      log('$title----------------------------$body-------------$token');
+      String serverToken = 'ya29.a0AcM612z7uKwkapv1QzRBKbza3KDaLpubpby4XDZZxEMDNnZQrHgJbx6gbADpKQvYv7tO8xQeKZtbqCtPPSvkl_EktiHcOIaPFmnnR8QJC3OT4DLqbyu4BXM4w6C_But3cjfI4m1y2SWlmsiZGYbwrgUKKGavqwYhiP8llyE1aCgYKAeISARESFQHGX2MiycuBxdxYzQcnlSfV9DY-pg0175';
+     log('$title----------------------------$body-------------$token');
       var response = await http.post(Uri.parse(baseUrl),
           body: jsonNotification,
           headers: <String, String>{
-            'Authorization': 'Bearer $serverToken',
+            'Authorization': 'Bearer $accessToken',
             'Content-Type': 'application/json',
           });
 
@@ -61,6 +62,20 @@ class ApiService {
     } catch (e) {
       log("Api error: ${e.toString()}");
     }
+  }
+
+  Future<String> getAccessToken() async {
+    // Load the service account credentials from the JSON file
+    var accountCredentials = ServiceAccountCredentials.fromJson(appJson);
+
+    // Define the scopes required for FCM (Cloud Platform scope)
+    var scopes = ['https://www.googleapis.com/auth/firebase.messaging'];
+
+    // Use the credentials to get an authenticated client
+    var authClient = await clientViaServiceAccount(accountCredentials, scopes);
+
+    // Return the OAuth 2.0 access token
+    return authClient.credentials.accessToken.data;
   }
 }
 

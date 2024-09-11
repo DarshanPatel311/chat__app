@@ -1,7 +1,8 @@
-import 'package:chat_app/controlar/Login_getx.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'controlar/Login_getx.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

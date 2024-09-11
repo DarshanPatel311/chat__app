@@ -1,7 +1,8 @@
-import 'package:chat_app/firebase_sarvis/firebase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../firebase_sarvis/firebase.dart';
 
 class LoginController extends GetxController {
 
